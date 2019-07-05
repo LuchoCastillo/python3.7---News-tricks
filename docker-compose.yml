@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  jupyter:
+    image: charla_python3
+    command: jupyter notebook --ip=0.0.0.0 --port=8080 --allow-root
+    volumes:
+      - .:/app
+    networks:
+      - moni
+    ports:
+      - "8080:8080"
+
+networks:
+  moni:
+    driver: bridge
